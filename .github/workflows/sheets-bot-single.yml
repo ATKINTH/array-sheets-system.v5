@@ -1,0 +1,23 @@
+name: Sheets Bot (Single: read)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+      SHEET_ID: ${{ secrets.SHEET_ID }}
+      SHEET_TAB: ${{ secrets.SHEET_TAB }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Read sheet (single command)
+        run: python main.py read "$SHEET_ID" "$SHEET_TAB"

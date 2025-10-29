@@ -13,11 +13,16 @@ jobs:
       SHEET_ID: ${{ secrets.SHEET_ID }}
       SHEET_TAB: ${{ secrets.SHEET_TAB }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install deps
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Read sheet (single command)
+
+      - name: Run sheet bot
         run: python main.py read "$SHEET_ID" "$SHEET_TAB"

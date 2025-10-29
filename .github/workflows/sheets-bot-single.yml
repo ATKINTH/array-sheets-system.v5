@@ -8,10 +8,12 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+
     env:
       GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
       SHEET_ID: ${{ secrets.SHEET_ID }}
       SHEET_TAB: ${{ secrets.SHEET_TAB }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,7 +24,19 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          echo "📦 Installing dependencies..."
+          pip install -r requirements.txt
+
+      - name: Validate files before run
+        run: |
+          echo "🔍 Checking files..."
+          test -f requirements.txt || (echo "❌ Missing requirements.txt" && exit 1)
+          test -f main.py || (echo "❌ Missing main.py" && exit 1)
+          test -f sheets_client.py || (echo "❌ Missing sheets_client.py" && exit 1)
+          echo "✅ All files are present"
 
       - name: Run sheet bot
-        run: python main.py read "$SHEET_ID" "$SHEET_TAB"
+        run: |
+          echo "🚀 Running Sheets Bot"
+          python main.py read "$SHEET_ID" "$SHEET_TAB"

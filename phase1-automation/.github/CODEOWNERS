@@ -1,6 +1,6 @@
 # CODEOWNERS — designate owners for automation and ops
 # Format: <file pattern> <github handle-or-team>
-/scripts/ @ATKINTH
-/ci/ @ATKINTH
-/ops/ @ATKINTH
-/*.md @ATKINTH
+/scripts/ @kupkipnaruk
+/ci/ @kupkipnaruk
+/ops/ @kupkipnaruk
+/*.md @kupkipnaruk

@@ -1,4 +1,4 @@
-name: Sheets Bot (Single: read)
+◌ัnameสๅาะไาๅัสๅะ: Sheets Bot (Single: read)
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+      GOOGLEพอมะๆมะมๅไำีใพีก็.ไ้ไม้ไมไ้ ไัมไ_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
       SHEET_ID: ${{ secrets.SHEET_ID }}
       SHEET_TAB: ${{ secrets.SHEET_TAB }}
 
@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: ac้ ห้ ได้ ๆ้ ได้ ก็ tions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -34,7 +34,7 @@ jobs:
           test -f requirements.txt || (echo "❌ Missing requirements.txt" && exit 1)
           test -f main.py || (echo "❌ Missing main.py" && exit 1)
           test -f sheets_client.py || (echo "❌ Missing sheets_client.py" && exit 1)
-          echo "✅ All files are present"
+           เห ได้ ไ่ ไecho "✅ All files are present"
 
       - name: Run sheet bot
         run: |

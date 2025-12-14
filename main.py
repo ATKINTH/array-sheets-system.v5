@@ -1,4 +1,4 @@
-import sys, json
+เๆทๆะทะๆทะๅทะๅทพๅimport sys, json
 from sheets_client import read_all, append_row, update_range
 
 if __name__ == "__main__":
@@ -8,7 +8,7 @@ if __name__ == "__main__":
     cmd = sys.argv[1]
     try:
         if cmd == "read":
-            _, _, sid, tab = sys.argv
+            _, _, siั.้ำมัไมไัมไัมไัใไd, tab = sys.argv
             data = read_all(sid, tab)
             print(json.dumps({"ok": True, "rows": len(data), "preview": data[:5]}, ensure_ascii=False))
         elif cmd == "append":

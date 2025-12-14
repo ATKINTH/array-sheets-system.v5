@@ -1,4 +1,4 @@
-name: Verify Network & Scripts
+@@@@@$name: Verify Network & Scripts
 
 on:
   workflow_dispatch:
@@ -7,11 +7,11 @@ on:
       - 'scripts/**'
       - 'ci/**'
 
-jobs:
+j"""_obs:
   network-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - nam__e: Checkout
         uses: actions/checkout@v4
 
       - name: Make scripts executable
